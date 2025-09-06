@@ -11,8 +11,8 @@
 }
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Inter,Roboto,Arial,sans-serif;line-height:1.6}
 a{color:var(--accent)} .wrap{max-width:1120px;margin:0 auto;padding:28px}
-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.brand{display:flex;align-items:center;gap:10px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;white-space:nowrap} /* Заголовок всегда в одну строку */
 .brand img{width:40px;height:40px;border-radius:8px;object-fit:cover}
 .lang button{background:#11151a;border:1px solid var(--muted);color:var(--text);padding:4px 10px;border-radius:6px;cursor:pointer;margin-left:6px}
 .lang button.active{border-color:var(--accent2);color:var(--accent2)}
@@ -47,21 +47,19 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
       <h1>Universal Plug</h1>
     </div>
     <div class="lang">
-      <button class="lang-btn active" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="ua">UA</button>
+      <button class="active" onclick="setLang('ru')">RU</button>
+      <button onclick="setLang('ua')">UA</button>
     </div>
   </header>
 
   <section class="hero">
     <div>
-      <span class="muted" data-ru="Классика, проверенная временем" data-ua="Класика, перевірена часом">Классика, проверенная временем</span>
-      <h2 data-ru="Термостойкий колпак для стандартных бутылок" data-ua="Термостійкий ковпак для стандартних пляшок">Термостойкий колпак для стандартных бутылок</h2>
-      <p class="lead" data-ru="Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС." data-ua="Міцний композит з металевою вставкою. Рівна тяга, не перегрівається, легко чиститься — отвори можна швидко прочистити зубочисткою чи голочкою. Доставка по Нідерландах і ЄС.">
-        Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.
-      </p>
+      <span class="muted" data-i18n="tagline">Классика, проверенная временем</span>
+      <h2 data-i18n="title">Термостойкий колпак для стандартных бутылок</h2>
+      <p class="lead" data-i18n="desc">Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.</p>
       <div class="cta-row">
-        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Заказать в Telegram" data-ua="Замовити в Telegram">Заказать в Telegram</a>
-        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-ru="Написать в WhatsApp" data-ua="Написати в WhatsApp">Написать в WhatsApp</a>
+        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-i18n="cta">Заказать в Telegram</a>
+        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-i18n="cta2">Написать в WhatsApp</a>
       </div>
     </div>
     <div class="media">
@@ -70,110 +68,102 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
   </section>
 
   <section>
+    <h3 data-i18n="why">Почему это удобно</h3>
     <div class="grid-2">
       <div>
-        <h3 data-ru="Почему это удобно" data-ua="Чому це зручно">Почему это удобно</h3>
         <ul class="bullets">
-          <li data-ru="Композит (пластик + стекловолокно) + металлическая вставка" data-ua="Композит (пластик + скловолокно) + металева вставка">Композит (пластик + стекловолокно) + металлическая вставка</li>
-          <li data-ru="Прочный и термостойкий: не перегревается, не обжигает руки" data-ua="Міцний і термостійкий: не перегрівається, не обпікає руки">Прочный и термостойкий: не перегревается, не обжигает руки</li>
-          <li data-ru="Без запаха при нагреве" data-ua="Без запаху при нагріванні">Без запаха при нагреве</li>
-          <li data-ru="Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л" data-ua="Універсальний: одягається на стандартні ПЕТ-пляшки 0,5–2 л">Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
-          <li data-ru="Долговечный: колпак невозможно сломать, можно только потерять" data-ua="Довговічний: ковпак неможливо зламати, можна тільки загубити">Долговечный: колпак невозможно сломать, можно только потерять</li>
-          <li data-ru="Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой" data-ua="Легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою">Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
-        </ul>
-      </div>
-      <div>
-        <h3 data-ru="Как использовать" data-ua="Як використовувати">Как использовать</h3>
-        <ul class="bullets">
-          <li data-ru="Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра." data-ua="Візьміть чисту пластикову пляшку 0,5–2 л зі стандартним горлечком.">Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра.</li>
-          <li data-ru="Наденьте Universal Plug на горлышко — посадка плотная и герметичная." data-ua="Одягніть Universal Plug на горлечко — посадка щільна та герметична.">Наденьте Universal Plug на горлышко — посадка плотная и герметичная.</li>
-          <li data-ru="После использования при необходимости очистите отверстия зубочисткой или иголочкой." data-ua="Після використання за потреби очистіть отвори зубочисткою чи голкою.">После использования при необходимости очистите отверстия зубочисткой или иголочкой.</li>
+          <li data-i18n="f1">Композит (пластик + стекловолокно) + металлическая вставка</li>
+          <li data-i18n="f2">Прочный и термостойкий: не перегревается, не обжигает руки</li>
+          <li data-i18n="f3">Без запаха при нагреве</li>
+          <li data-i18n="f4">Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
+          <li data-i18n="f5">Долговечный: практически нечему ломаться</li>
+          <li data-i18n="f6">Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="colors">
-    <h3 data-ru="Выберите цвет" data-ua="Виберіть колір">Выберите цвет</h3>
+    <h3 data-i18n="choose">Выберите цвет</h3>
     <div>
-      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span><span data-ru="Зелёный" data-ua="Зелений">Зелёный</span></button>
-      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span><span data-ru="Красный" data-ua="Червоний">Красный</span></button>
-      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span><span data-ru="Чёрный" data-ua="Чорний">Чёрный</span></button>
-      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span><span data-ru="Синий" data-ua="Синій">Синий</span></button>
-      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span><span data-ru="Фиолетовый" data-ua="Фіолетовий">Фиолетовый</span></button>
+      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span><span data-i18n="green">Зелёный</span></button>
+      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span><span data-i18n="red">Красный</span></button>
+      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span><span data-i18n="black">Чёрный</span></button>
+      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span><span data-i18n="blue">Синий</span></button>
+      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span><span data-i18n="purple">Фиолетовый</span></button>
     </div>
   </section>
 
   <section>
-    <h3 data-ru="Цены и доставка" data-ua="Ціни та доставка">Цены и доставка</h3>
+    <h3 data-i18n="prices">Цены и доставка</h3>
     <div class="pricing">
       <div class="price-card">
-        <div class="pill muted" data-ru="Один колпак" data-ua="Один ковпак">Один колпак</div>
+        <div class="pill muted" data-i18n="one">Один колпак</div>
         <div class="price">€15</div>
-        <p class="muted" data-ru="Доставку оплачивает клиент." data-ua="Доставку оплачує клієнт.">Доставку оплачивает клиент.</p>
+        <p class="muted" data-i18n="ship1">Доставку оплачивает клиент.</p>
         <ul class="bullets">
-          <li>NL: PostNL €4,95 · 1–3 дня</li>
-          <li>EU: €8,99 · 3–7 дней</li>
+          <li data-i18n="nl1">NL: PostNL €4,95 · 1–3 дня</li>
+          <li data-i18n="eu1">EU: €8,99 · 3–7 дней</li>
         </ul>
-        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Оформить в Telegram" data-ua="Замовити в Telegram">Оформить в Telegram</a></div>
       </div>
-      <div class="price-card" style="border-color:#2b6;">
-        <div class="pill muted" data-ru="Два колпака" data-ua="Два ковпаки">Два колпака</div>
+      <div class="price-card">
+        <div class="pill muted" data-i18n="two">Два колпака</div>
         <div class="price">€22</div>
-        <p class="muted" data-ru="Доставка NL — бесплатно. В ЕС — 4,99 €" data-ua="Доставка NL — безкоштовно. В ЄС — 4,99 €">Доставка NL — бесплатно. В ЕС — 4,99 €</p>
+        <p class="muted" data-i18n="ship2">Доставка NL — бесплатно. В ЕС — €4.99.</p>
         <ul class="bullets">
-          <li>NL: 0 € · 1–3 дня</li>
-          <li>EU: 4,99 € · 3–7 дней</li>
+          <li data-i18n="nl2">NL: 0 € · 1–3 дня</li>
+          <li data-i18n="eu2">EU: €4.99 · 3–7 дней</li>
         </ul>
-        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Оформить в Telegram" data-ua="Замовити в Telegram">Оформить в Telegram</a></div>
       </div>
     </div>
   </section>
 
-  <section>
-    <h3 data-ru="Оплата" data-ua="Оплата">Оплата</h3>
-    <p class="muted" data-ru="Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече." data-ua="Переказ на банківський рахунок (IBAN), Revolut/Wise, або PayPal за домовленістю. Готівкою — при особистій зустрічі.">Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече.</p>
-  </section>
-
-  <section>
-    <h3 data-ru="Заказать" data-ua="Замовити">Заказать</h3>
-    <p class="muted" data-ru="Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты." data-ua="Натисніть кнопку нижче і напишіть: колір, кількість, місто та адресу доставки. Ми підтвердимо наявність і надішлемо реквізити.">Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Заказать в Telegram" data-ua="Замовити в Telegram">Заказать в Telegram</a>
-      <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-ru="Написать в WhatsApp" data-ua="Написати в WhatsApp">Написать в WhatsApp</a>
-    </div>
-  </section>
-
-  <footer data-ru="© 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp." data-ua="© 2025 Universal Plug · Ми не збираємо персональні дані на сайті. Замовлення оформлюються в Telegram/WhatsApp.">
-    © 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp.
-  </footer>
+  <footer>© 2025 Universal Plug</footer>
 </div>
 
 <script>
-// Переключение языка
-const buttons = document.querySelectorAll('.lang-btn');
-const elements = document.querySelectorAll('[data-ru]');
+const translations = {
+  ua: {
+    tagline: "Класика, перевірена часом",
+    title: "Термостійкий ковпак для стандартних пляшок",
+    desc: "Міцний композит з металевою вставкою. Рівна тяга, не перегрівається, легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою. Доставка по Нідерландам і ЄС.",
+    cta: "Замовити в Telegram",
+    cta2: "Написати в WhatsApp",
+    why: "Чому це зручно",
+    f1: "Композит (пластик + скловолокно) + металева вставка",
+    f2: "Міцний і термостійкий: не перегрівається, не обпікає руки",
+    f3: "Без запаху при нагріві",
+    f4: "Універсальний: підходить для ПЕТ-пляшок 0,5–2 л",
+    f5: "Довговічний: зламати неможливо, можна лише загубити",
+    f6: "Легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою",
+    choose: "Оберіть колір",
+    green: "Зелений",
+    red: "Червоний",
+    black: "Чорний",
+    blue: "Синій",
+    purple: "Фіолетовий",
+    prices: "Ціни та доставка",
+    one: "Один ковпак",
+    two: "Два ковпаки",
+    ship1: "Доставку оплачує клієнт.",
+    ship2: "Доставка NL — безкоштовно. В ЄС — €4.99.",
+    nl1: "NL: PostNL €4,95 · 1–3 дні",
+    eu1: "EU: €8,99 · 3–7 днів",
+    nl2: "NL: 0 € · 1–3 дні",
+    eu2: "EU: €4.99 · 3–7 днів"
+  }
+};
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    buttons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const lang = btn.dataset.lang;
-    elements.forEach(el => {
-      el.textContent = el.getAttribute(`data-${lang}`);
-    });
+function setLang(lang){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]){
+      el.textContent = translations[lang][key];
+    }
   });
-});
-
-// Переключение фото по цветам
-const mainEl = document.getElementById('mainPhoto');
-document.querySelectorAll('.swatch').forEach(btn => {
-  btn.addEventListener('click', () => {
-    mainEl.src = btn.dataset.img;
-    document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
+  document.querySelectorAll(".lang button").forEach(btn=>btn.classList.remove("active"));
+  document.querySelector('.lang button[onclick="setLang(\''+lang+'\')"]').classList.add("active");
+}
 </script>
 </body>
 </html>
