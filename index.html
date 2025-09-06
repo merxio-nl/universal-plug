@@ -35,16 +35,19 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 .price-card{background:#0e1318;border:1px solid #1f2a34;border-radius:14px;padding:16px}
 .price{font-size:32px;font-weight:800;margin:8px 0}
 .muted{color:var(--muted)} footer{padding:6px 0 0;opacity:.9;font-size:12px;color:var(--muted)}
+/* Preview image inside Colors section */
+.color-view{background:#11151a;border-radius:16px;padding:12px;margin-bottom:8px}
+.color-view img{width:100%;display:block;border-radius:12px;background:#11151a}
 @media(max-width:860px){.hero{grid-template-columns:1fr} h2{font-size:34px}}
-/* Mobile layout tweak: move image between h2 and lead */
+/* Mobile layout: hero remains stacked, no duplicate image here */
 @media(max-width:540px){
   .cta-row .btn{width:100%} .wrap{padding:18px} section{padding:18px;margin:16px 0}
   .hero{display:flex;flex-direction:column;gap:12px}
   .hero .muted:first-child{order:1}
   .hero h2{order:2}
-  .hero .media{order:3}
-  .hero .lead{order:4}
-  .hero .cta-row{order:5}
+  .hero .lead{order:3}
+  .hero .cta-row{order:4}
+  .hero .media{order:5}
 }
 </style>
 </head>
@@ -65,16 +68,13 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
     <div>
       <span class="muted">Классика, проверенная временем</span>
       <h2>Термостойкий колпак для стандартных бутылок</h2>
-      <div class="media mobile-only">
-        <img id="mainPhotoMobile" src="plug-main.png" alt="Universal Plug — два колпака">
-      </div>
       <p class="lead">Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.</p>
       <div class="cta-row">
         <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Заказать в Telegram</a>
         <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
       </div>
     </div>
-    <div class="media desktop-only">
+    <div class="media">
       <img id="mainPhoto" src="plug-main.png" alt="Universal Plug — два колпака">
     </div>
   </section>
@@ -88,8 +88,8 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
           <li>Прочный и термостойкий: не перегревается, не обжигает руки</li>
           <li>Без запаха при нагреве</li>
           <li>Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
-          <li>Долговечный: практически нечему ломаться</li>
-          <li>Легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой</li>
+          <li>Долговечный: сломать невозможно — можно только потерять</li>
+          <li>Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
         </ul>
       </div>
       <div>
@@ -105,6 +105,12 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 
   <section class="colors">
     <h3>Выберите цвет</h3>
+
+    <!-- Именно этот превью-кадр меняется при клике по свотчам -->
+    <div class="color-view">
+      <img id="colorPhoto" src="plug-green.png" alt="Предпросмотр выбранного цвета">
+    </div>
+
     <div>
       <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span>Зелёный</button>
       <button class="swatch" data-img="plug-red.png"><span class="dot red"></span>Красный</button>
@@ -158,10 +164,11 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 </div>
 
 <script>
-  const mainEl = document.getElementById('mainPhoto');
+  // Меняем только нижний предпросмотр цвета, верхнее фото остаётся как есть
+  const colorPhoto = document.getElementById('colorPhoto');
   document.querySelectorAll('.swatch').forEach(btn => {
     btn.addEventListener('click', () => {
-      mainEl.src = btn.dataset.img;
+      colorPhoto.src = btn.dataset.img;
       document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
     });
