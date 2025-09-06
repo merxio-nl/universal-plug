@@ -35,20 +35,8 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 .price-card{background:#0e1318;border:1px solid #1f2a34;border-radius:14px;padding:16px}
 .price{font-size:32px;font-weight:800;margin:8px 0}
 .muted{color:var(--muted)} footer{padding:6px 0 0;opacity:.9;font-size:12px;color:var(--muted)}
-/* Preview image inside Colors section */
-.color-view{background:#11151a;border-radius:16px;padding:12px;margin-bottom:8px}
-.color-view img{width:100%;display:block;border-radius:12px;background:#11151a}
 @media(max-width:860px){.hero{grid-template-columns:1fr} h2{font-size:34px}}
-/* Mobile layout: hero remains stacked, no duplicate image here */
-@media(max-width:540px){
-  .cta-row .btn{width:100%} .wrap{padding:18px} section{padding:18px;margin:16px 0}
-  .hero{display:flex;flex-direction:column;gap:12px}
-  .hero .muted:first-child{order:1}
-  .hero h2{order:2}
-  .hero .lead{order:3}
-  .hero .cta-row{order:4}
-  .hero .media{order:5}
-}
+@media(max-width:540px){.cta-row .btn{width:100%} .wrap{padding:18px} section{padding:18px;margin:16px 0}}
 </style>
 </head>
 <body>
@@ -59,19 +47,21 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
       <h1>Universal Plug</h1>
     </div>
     <div class="lang">
-      <button class="active">RU</button>
-      <button>EN</button>
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="ua">UA</button>
     </div>
   </header>
 
   <section class="hero">
     <div>
-      <span class="muted">Классика, проверенная временем</span>
-      <h2>Термостойкий колпак для стандартных бутылок</h2>
-      <p class="lead">Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.</p>
+      <span class="muted" data-ru="Классика, проверенная временем" data-ua="Класика, перевірена часом">Классика, проверенная временем</span>
+      <h2 data-ru="Термостойкий колпак для стандартных бутылок" data-ua="Термостійкий ковпак для стандартних пляшок">Термостойкий колпак для стандартных бутылок</h2>
+      <p class="lead" data-ru="Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС." data-ua="Міцний композит з металевою вставкою. Рівна тяга, не перегрівається, легко чиститься — отвори можна швидко прочистити зубочисткою чи голочкою. Доставка по Нідерландах і ЄС.">
+        Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.
+      </p>
       <div class="cta-row">
-        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Заказать в Telegram</a>
-        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Заказать в Telegram" data-ua="Замовити в Telegram">Заказать в Telegram</a>
+        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-ru="Написать в WhatsApp" data-ua="Написати в WhatsApp">Написать в WhatsApp</a>
       </div>
     </div>
     <div class="media">
@@ -82,97 +72,108 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
   <section>
     <div class="grid-2">
       <div>
-        <h3>Почему это удобно</h3>
+        <h3 data-ru="Почему это удобно" data-ua="Чому це зручно">Почему это удобно</h3>
         <ul class="bullets">
-          <li>Композит (пластик + стекловолокно) + металлическая вставка</li>
-          <li>Прочный и термостойкий: не перегревается, не обжигает руки</li>
-          <li>Без запаха при нагреве</li>
-          <li>Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
-          <li>Долговечный: сломать невозможно — можно только потерять</li>
-          <li>Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
+          <li data-ru="Композит (пластик + стекловолокно) + металлическая вставка" data-ua="Композит (пластик + скловолокно) + металева вставка">Композит (пластик + стекловолокно) + металлическая вставка</li>
+          <li data-ru="Прочный и термостойкий: не перегревается, не обжигает руки" data-ua="Міцний і термостійкий: не перегрівається, не обпікає руки">Прочный и термостойкий: не перегревается, не обжигает руки</li>
+          <li data-ru="Без запаха при нагреве" data-ua="Без запаху при нагріванні">Без запаха при нагреве</li>
+          <li data-ru="Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л" data-ua="Універсальний: одягається на стандартні ПЕТ-пляшки 0,5–2 л">Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
+          <li data-ru="Долговечный: колпак невозможно сломать, можно только потерять" data-ua="Довговічний: ковпак неможливо зламати, можна тільки загубити">Долговечный: колпак невозможно сломать, можно только потерять</li>
+          <li data-ru="Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой" data-ua="Легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою">Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
         </ul>
       </div>
       <div>
-        <h3>Как использовать</h3>
+        <h3 data-ru="Как использовать" data-ua="Як використовувати">Как использовать</h3>
         <ul class="bullets">
-          <li>Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра.</li>
-          <li>Наденьте Universal Plug на горлышко — посадка плотная и герметичная.</li>
-          <li>После использования при необходимости очистите отверстия зубочисткой или иголочкой.</li>
+          <li data-ru="Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра." data-ua="Візьміть чисту пластикову пляшку 0,5–2 л зі стандартним горлечком.">Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра.</li>
+          <li data-ru="Наденьте Universal Plug на горлышко — посадка плотная и герметичная." data-ua="Одягніть Universal Plug на горлечко — посадка щільна та герметична.">Наденьте Universal Plug на горлышко — посадка плотная и герметичная.</li>
+          <li data-ru="После использования при необходимости очистите отверстия зубочисткой или иголочкой." data-ua="Після використання за потреби очистіть отвори зубочисткою чи голкою.">После использования при необходимости очистите отверстия зубочисткой или иголочкой.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="colors">
-    <h3>Выберите цвет</h3>
-
-    <!-- Именно этот превью-кадр меняется при клике по свотчам -->
-    <div class="color-view">
-      <img id="colorPhoto" src="plug-green.png" alt="Предпросмотр выбранного цвета">
-    </div>
-
+    <h3 data-ru="Выберите цвет" data-ua="Виберіть колір">Выберите цвет</h3>
     <div>
-      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span>Зелёный</button>
-      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span>Красный</button>
-      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span>Чёрный</button>
-      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span>Синий</button>
-      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span>Фиолетовый</button>
+      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span><span data-ru="Зелёный" data-ua="Зелений">Зелёный</span></button>
+      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span><span data-ru="Красный" data-ua="Червоний">Красный</span></button>
+      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span><span data-ru="Чёрный" data-ua="Чорний">Чёрный</span></button>
+      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span><span data-ru="Синий" data-ua="Синій">Синий</span></button>
+      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span><span data-ru="Фиолетовый" data-ua="Фіолетовий">Фиолетовый</span></button>
     </div>
   </section>
 
   <section>
-    <h3>Цены и доставка</h3>
+    <h3 data-ru="Цены и доставка" data-ua="Ціни та доставка">Цены и доставка</h3>
     <div class="pricing">
       <div class="price-card">
-        <div class="pill muted">Один колпак</div>
+        <div class="pill muted" data-ru="Один колпак" data-ua="Один ковпак">Один колпак</div>
         <div class="price">€15</div>
-        <p class="muted">Доставку оплачивает клиент.</p>
+        <p class="muted" data-ru="Доставку оплачивает клиент." data-ua="Доставку оплачує клієнт.">Доставку оплачивает клиент.</p>
         <ul class="bullets">
           <li>NL: PostNL €4,95 · 1–3 дня</li>
           <li>EU: €8,99 · 3–7 дней</li>
         </ul>
-        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Оформить в Telegram</a></div>
+        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Оформить в Telegram" data-ua="Замовити в Telegram">Оформить в Telegram</a></div>
       </div>
       <div class="price-card" style="border-color:#2b6;">
-        <div class="pill muted">Два колпака</div>
+        <div class="pill muted" data-ru="Два колпака" data-ua="Два ковпаки">Два колпака</div>
         <div class="price">€22</div>
-        <p class="muted">Доставка NL — бесплатно. В ЕС — €4,99.</p>
+        <p class="muted" data-ru="Доставка NL — бесплатно. В ЕС — 4,99 €" data-ua="Доставка NL — безкоштовно. В ЄС — 4,99 €">Доставка NL — бесплатно. В ЕС — 4,99 €</p>
         <ul class="bullets">
           <li>NL: 0 € · 1–3 дня</li>
-          <li>EU: €4,99 · 3–7 дней</li>
+          <li>EU: 4,99 € · 3–7 дней</li>
         </ul>
-        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Оформить в Telegram</a></div>
+        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Оформить в Telegram" data-ua="Замовити в Telegram">Оформить в Telegram</a></div>
       </div>
     </div>
   </section>
 
   <section>
-    <h3>Оплата</h3>
-    <p class="muted">Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече.</p>
+    <h3 data-ru="Оплата" data-ua="Оплата">Оплата</h3>
+    <p class="muted" data-ru="Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече." data-ua="Переказ на банківський рахунок (IBAN), Revolut/Wise, або PayPal за домовленістю. Готівкою — при особистій зустрічі.">Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече.</p>
   </section>
 
   <section>
-    <h3>Заказать</h3>
-    <p class="muted">Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты.</p>
+    <h3 data-ru="Заказать" data-ua="Замовити">Заказать</h3>
+    <p class="muted" data-ru="Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты." data-ua="Натисніть кнопку нижче і напишіть: колір, кількість, місто та адресу доставки. Ми підтвердимо наявність і надішлемо реквізити.">Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты.</p>
     <div class="cta-row">
-      <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Заказать в Telegram</a>
-      <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-ru="Заказать в Telegram" data-ua="Замовити в Telegram">Заказать в Telegram</a>
+      <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-ru="Написать в WhatsApp" data-ua="Написати в WhatsApp">Написать в WhatsApp</a>
     </div>
   </section>
 
-  <footer>© 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp.</footer>
+  <footer data-ru="© 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp." data-ua="© 2025 Universal Plug · Ми не збираємо персональні дані на сайті. Замовлення оформлюються в Telegram/WhatsApp.">
+    © 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp.
+  </footer>
 </div>
 
 <script>
-  // Меняем только нижний предпросмотр цвета, верхнее фото остаётся как есть
-  const colorPhoto = document.getElementById('colorPhoto');
-  document.querySelectorAll('.swatch').forEach(btn => {
-    btn.addEventListener('click', () => {
-      colorPhoto.src = btn.dataset.img;
-      document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
+// Переключение языка
+const buttons = document.querySelectorAll('.lang-btn');
+const elements = document.querySelectorAll('[data-ru]');
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const lang = btn.dataset.lang;
+    elements.forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
     });
   });
+});
+
+// Переключение фото по цветам
+const mainEl = document.getElementById('mainPhoto');
+document.querySelectorAll('.swatch').forEach(btn => {
+  btn.addEventListener('click', () => {
+    mainEl.src = btn.dataset.img;
+    document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
