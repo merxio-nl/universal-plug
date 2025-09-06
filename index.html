@@ -11,8 +11,8 @@
 }
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Inter,Roboto,Arial,sans-serif;line-height:1.6}
 a{color:var(--accent)} .wrap{max-width:1120px;margin:0 auto;padding:28px}
-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:10px;white-space:nowrap} /* Заголовок всегда в одну строку */
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:10px}
 .brand img{width:40px;height:40px;border-radius:8px;object-fit:cover}
 .lang button{background:#11151a;border:1px solid var(--muted);color:var(--text);padding:4px 10px;border-radius:6px;cursor:pointer;margin-left:6px}
 .lang button.active{border-color:var(--accent2);color:var(--accent2)}
@@ -35,8 +35,20 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 .price-card{background:#0e1318;border:1px solid #1f2a34;border-radius:14px;padding:16px}
 .price{font-size:32px;font-weight:800;margin:8px 0}
 .muted{color:var(--muted)} footer{padding:6px 0 0;opacity:.9;font-size:12px;color:var(--muted)}
+/* Preview image inside Colors section */
+.color-view{background:#11151a;border-radius:16px;padding:12px;margin-bottom:8px}
+.color-view img{width:100%;display:block;border-radius:12px;background:#11151a}
 @media(max-width:860px){.hero{grid-template-columns:1fr} h2{font-size:34px}}
-@media(max-width:540px){.cta-row .btn{width:100%} .wrap{padding:18px} section{padding:18px;margin:16px 0}}
+/* Mobile layout: hero remains stacked, no duplicate image here */
+@media(max-width:540px){
+  .cta-row .btn{width:100%} .wrap{padding:18px} section{padding:18px;margin:16px 0}
+  .hero{display:flex;flex-direction:column;gap:12px}
+  .hero .muted:first-child{order:1}
+  .hero h2{order:2}
+  .hero .lead{order:3}
+  .hero .cta-row{order:4}
+  .hero .media{order:5}
+}
 </style>
 </head>
 <body>
@@ -47,19 +59,19 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
       <h1>Universal Plug</h1>
     </div>
     <div class="lang">
-      <button class="active" onclick="setLang('ru')">RU</button>
-      <button onclick="setLang('ua')">UA</button>
+      <button class="active">RU</button>
+      <button>EN</button>
     </div>
   </header>
 
   <section class="hero">
     <div>
-      <span class="muted" data-i18n="tagline">Классика, проверенная временем</span>
-      <h2 data-i18n="title">Термостойкий колпак для стандартных бутылок</h2>
-      <p class="lead" data-i18n="desc">Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.</p>
+      <span class="muted">Классика, проверенная временем</span>
+      <h2>Термостойкий колпак для стандартных бутылок</h2>
+      <p class="lead">Прочный композит с металлической вставкой. Ровная тяга, не перегревается, легко чистится — отверстия можно быстро прочистить зубочисткой или иголочкой. Доставка по Нидерландам и ЕС.</p>
       <div class="cta-row">
-        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener" data-i18n="cta">Заказать в Telegram</a>
-        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-i18n="cta2">Написать в WhatsApp</a>
+        <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Заказать в Telegram</a>
+        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
       </div>
     </div>
     <div class="media">
@@ -68,102 +80,99 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
   </section>
 
   <section>
-    <h3 data-i18n="why">Почему это удобно</h3>
     <div class="grid-2">
       <div>
+        <h3>Почему это удобно</h3>
         <ul class="bullets">
-          <li data-i18n="f1">Композит (пластик + стекловолокно) + металлическая вставка</li>
-          <li data-i18n="f2">Прочный и термостойкий: не перегревается, не обжигает руки</li>
-          <li data-i18n="f3">Без запаха при нагреве</li>
-          <li data-i18n="f4">Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
-          <li data-i18n="f5">Долговечный: практически нечему ломаться</li>
-          <li data-i18n="f6">Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
+          <li>Композит (пластик + стекловолокно) + металлическая вставка</li>
+          <li>Прочный и термостойкий: не перегревается, не обжигает руки</li>
+          <li>Без запаха при нагреве</li>
+          <li>Универсальный: надевается на стандартные ПЭТ-бутылки 0,5–2 л</li>
+          <li>Долговечный: сломать невозможно — можно только потерять</li>
+          <li>Легко чистится — отверстия можно быстро прочистить зубочисткой или иголкой</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Как использовать</h3>
+        <ul class="bullets">
+          <li>Возьмите чистую пластиковую бутылку 0,5–2 л с горлышком стандартного диаметра.</li>
+          <li>Наденьте Universal Plug на горлышко — посадка плотная и герметичная.</li>
+          <li>После использования при необходимости очистите отверстия зубочисткой или иголочкой.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="colors">
-    <h3 data-i18n="choose">Выберите цвет</h3>
+    <h3>Выберите цвет</h3>
+
+    <!-- Именно этот превью-кадр меняется при клике по свотчам -->
+    <div class="color-view">
+      <img id="colorPhoto" src="plug-green.png" alt="Предпросмотр выбранного цвета">
+    </div>
+
     <div>
-      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span><span data-i18n="green">Зелёный</span></button>
-      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span><span data-i18n="red">Красный</span></button>
-      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span><span data-i18n="black">Чёрный</span></button>
-      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span><span data-i18n="blue">Синий</span></button>
-      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span><span data-i18n="purple">Фиолетовый</span></button>
+      <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span>Зелёный</button>
+      <button class="swatch" data-img="plug-red.png"><span class="dot red"></span>Красный</button>
+      <button class="swatch" data-img="plug-black.png"><span class="dot black"></span>Чёрный</button>
+      <button class="swatch" data-img="plug-blue.png"><span class="dot blue"></span>Синий</button>
+      <button class="swatch" data-img="plug-purple.png"><span class="dot purple"></span>Фиолетовый</button>
     </div>
   </section>
 
   <section>
-    <h3 data-i18n="prices">Цены и доставка</h3>
+    <h3>Цены и доставка</h3>
     <div class="pricing">
       <div class="price-card">
-        <div class="pill muted" data-i18n="one">Один колпак</div>
+        <div class="pill muted">Один колпак</div>
         <div class="price">€15</div>
-        <p class="muted" data-i18n="ship1">Доставку оплачивает клиент.</p>
+        <p class="muted">Доставку оплачивает клиент.</p>
         <ul class="bullets">
-          <li data-i18n="nl1">NL: PostNL €4,95 · 1–3 дня</li>
-          <li data-i18n="eu1">EU: €8,99 · 3–7 дней</li>
+          <li>NL: PostNL €4,95 · 1–3 дня</li>
+          <li>EU: €8,99 · 3–7 дней</li>
         </ul>
+        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Оформить в Telegram</a></div>
       </div>
-      <div class="price-card">
-        <div class="pill muted" data-i18n="two">Два колпака</div>
+      <div class="price-card" style="border-color:#2b6;">
+        <div class="pill muted">Два колпака</div>
         <div class="price">€22</div>
-        <p class="muted" data-i18n="ship2">Доставка NL — бесплатно. В ЕС — €4.99.</p>
+        <p class="muted">Доставка NL — бесплатно. В ЕС — €4,99.</p>
         <ul class="bullets">
-          <li data-i18n="nl2">NL: 0 € · 1–3 дня</li>
-          <li data-i18n="eu2">EU: €4.99 · 3–7 дней</li>
+          <li>NL: 0 € · 1–3 дня</li>
+          <li>EU: €4,99 · 3–7 дней</li>
         </ul>
+        <div class="cta-row"><a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Оформить в Telegram</a></div>
       </div>
     </div>
   </section>
 
-  <footer>© 2025 Universal Plug</footer>
+  <section>
+    <h3>Оплата</h3>
+    <p class="muted">Перевод на банковский счёт (IBAN), Revolut/Wise, либо PayPal по договорённости. Наличными — при личной встрече.</p>
+  </section>
+
+  <section>
+    <h3>Заказать</h3>
+    <p class="muted">Нажмите кнопку ниже и напишите: цвет, количество, город и адрес доставки. Мы подтвердим наличие и пришлём реквизиты.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://t.me/fildebil007" target="_blank" rel="noopener">Заказать в Telegram</a>
+      <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Universal Plug · Мы не собираем персональные данные на сайте. Заказы оформляются в Telegram/WhatsApp.</footer>
 </div>
 
 <script>
-const translations = {
-  ua: {
-    tagline: "Класика, перевірена часом",
-    title: "Термостійкий ковпак для стандартних пляшок",
-    desc: "Міцний композит з металевою вставкою. Рівна тяга, не перегрівається, легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою. Доставка по Нідерландам і ЄС.",
-    cta: "Замовити в Telegram",
-    cta2: "Написати в WhatsApp",
-    why: "Чому це зручно",
-    f1: "Композит (пластик + скловолокно) + металева вставка",
-    f2: "Міцний і термостійкий: не перегрівається, не обпікає руки",
-    f3: "Без запаху при нагріві",
-    f4: "Універсальний: підходить для ПЕТ-пляшок 0,5–2 л",
-    f5: "Довговічний: зламати неможливо, можна лише загубити",
-    f6: "Легко чиститься — отвори можна швидко прочистити зубочисткою чи голкою",
-    choose: "Оберіть колір",
-    green: "Зелений",
-    red: "Червоний",
-    black: "Чорний",
-    blue: "Синій",
-    purple: "Фіолетовий",
-    prices: "Ціни та доставка",
-    one: "Один ковпак",
-    two: "Два ковпаки",
-    ship1: "Доставку оплачує клієнт.",
-    ship2: "Доставка NL — безкоштовно. В ЄС — €4.99.",
-    nl1: "NL: PostNL €4,95 · 1–3 дні",
-    eu1: "EU: €8,99 · 3–7 днів",
-    nl2: "NL: 0 € · 1–3 дні",
-    eu2: "EU: €4.99 · 3–7 днів"
-  }
-};
-
-function setLang(lang){
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.getAttribute("data-i18n");
-    if(translations[lang] && translations[lang][key]){
-      el.textContent = translations[lang][key];
-    }
+  // Меняем только нижний предпросмотр цвета, верхнее фото остаётся как есть
+  const colorPhoto = document.getElementById('colorPhoto');
+  document.querySelectorAll('.swatch').forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorPhoto.src = btn.dataset.img;
+      document.querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    });
   });
-  document.querySelectorAll(".lang button").forEach(btn=>btn.classList.remove("active"));
-  document.querySelector('.lang button[onclick="setLang(\''+lang+'\')"]').classList.add("active");
-}
 </script>
 </body>
 </html>
