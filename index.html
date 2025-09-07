@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KR95VN2HJH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KR95VN2HJH');
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Universal Plug — термостойкий колпак</title>
@@ -50,6 +59,14 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
   .color-view{display:block}
 }
 </style>
+
+<link rel="icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
+<link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="msapplication-config" content="./browserconfig.xml">
 </head>
 <body>
 <div class="wrap">
@@ -272,6 +289,58 @@ document.querySelectorAll('.swatch').forEach(btn=>{
     if(colorPhoto) colorPhoto.src=btn.dataset.img;
   });
 });
+</script>
+
+<script>
+(function () {
+  function labelFor(el) {
+    const href = (el.getAttribute('href') || '').toLowerCase();
+    const id = (el.id || '').toLowerCase();
+    const cls = (el.className || '').toLowerCase();
+    const text = (el.textContent || '').trim().toLowerCase().slice(0,40);
+    if (/t\.me|telegram/.test(href+id+cls+text)) return 'telegram';
+    if (/wa\.me|whatsapp/.test(href+id+cls+text)) return 'whatsapp';
+    if (/\bru\b/.test(id+cls+text)) return 'lang_ru';
+    if (/\bua\b/.test(id+cls+text)) return 'lang_ua';
+    if (/mailto:/.test(href)) return 'email';
+    if (/^tel:/.test(href)) return 'phone';
+    if (href) {
+      try { 
+        const u = new URL(href, location.href);
+        if (u.hostname && u.hostname !== location.hostname) return 'external_' + u.hostname;
+      } catch(e) {}
+    }
+    return text || href || id || 'button';
+  }
+
+  function send(label) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'click', {
+        event_category: 'button',
+        event_label: label,
+        transport_type: 'beacon'
+      });
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a,button');
+    if (!a) return;
+    const label = labelFor(a);
+    send(label);
+    // Delay navigation for same-tab links a tiny bit so GA can send
+    if (a.tagName === 'A') {
+      const target = a.getAttribute('target');
+      const href = a.getAttribute('href') || '';
+      if (!target || target === '_self') {
+        if (!/^#/.test(href)) {
+          e.preventDefault();
+          setTimeout(() => window.location.assign(a.href), 120);
+        }
+      }
+    }
+  }, { passive: false });
+})();
 </script>
 </body>
 </html>
