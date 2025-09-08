@@ -6,8 +6,21 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Минимальный Consent Mode (без рекламного хранилища)
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    analytics_storage: 'granted',
+    functionality_storage: 'granted',
+    security_storage: 'granted'
+  });
+
   gtag('js', new Date());
-  gtag('config', 'G-KR95VN2HJH');
+
+  // Включаем debug, чтобы события было видно в DebugView
+  gtag('config', 'G-KR95VN2HJH', {
+    debug_mode: true
+  });
 </script>
 
 <meta charset="utf-8">
