@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- Google tag (GA4) — OSNOVA v2 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5FSJ7233MQ"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KR95VN2HJH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-5FSJ7233MQ', { debug_mode: true });
-  gtag('consent','update',{ analytics_storage:'granted', ad_storage:'granted' });
+  gtag('config', 'G-KR95VN2HJH');
 </script>
 
 <meta charset="utf-8">
@@ -44,7 +43,7 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
 .price-card{background:#0e1318;border:1px solid #1f2a34;border-radius:14px;padding:16px}
 .price{font-size:32px;font-weight:800;margin:8px 0}
-.muted{color:var(--muted)} footer{padding:6px 0 0;opacity:.9;font-size:12px;color:#9fb2c7}
+.muted{color:var(--muted)} footer{padding:6px 0 0;opacity:.9;font-size:12px;color:var(--muted)}
 /* Preview image inside Colors section - mobile only */
 .color-view{display:none;background:#11151a;border-radius:16px;padding:12px;margin-bottom:8px}
 .color-view img{width:100%;display:block;border-radius:12px;background:#11151a}
@@ -74,6 +73,7 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
   <header>
     <div class="brand">
       <img src="universal-plug-top.jpg" alt="Universal Plug">
+      <!-- Текстовый заголовок удалён по просьбе клиента -->
     </div>
     <div class="lang">
       <button id="btn-ru" class="active">RU</button>
@@ -122,9 +122,12 @@ ul.bullets{margin:8px 0 0 0;padding-left:18px}
 
   <section class="colors">
     <h3 data-i18n="colorsTitle">Выберите цвет</h3>
+
+    <!-- Mobile-only preview -->
     <div class="color-view">
       <img id="colorPhoto" src="plug-green.png" alt="Предпросмотр выбранного цвета">
     </div>
+
     <div>
       <button class="swatch active" data-img="plug-green.png"><span class="dot green"></span><span data-i18n="cGreen">Зелёный</span></button>
       <button class="swatch" data-img="plug-red.png"><span class="dot red"></span><span data-i18n="cRed">Красный</span></button>
@@ -273,10 +276,14 @@ function setLang(lang){
   localStorage.setItem('lang', lang);
 }
 
+// init switch
 document.getElementById('btn-ru').addEventListener('click',()=>setLang('ru'));
 document.getElementById('btn-ua').addEventListener('click',()=>setLang('ua'));
+
+// initial
 setLang(localStorage.getItem('lang')||'ru');
 
+// update color preview image
 document.querySelectorAll('.swatch').forEach(btn=>{
   btn.addEventListener('click',()=>{
     if(colorPhoto) colorPhoto.src=btn.dataset.img;
@@ -321,6 +328,7 @@ document.querySelectorAll('.swatch').forEach(btn=>{
     if (!a) return;
     const label = labelFor(a);
     send(label);
+    // Delay navigation for same-tab links a tiny bit so GA can send
     if (a.tagName === 'A') {
       const target = a.getAttribute('target');
       const href = a.getAttribute('href') || '';
